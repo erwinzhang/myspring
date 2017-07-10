@@ -1,0 +1,67 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+//apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+
+jar {
+    baseName = 'myspring'
+    version = '0.0.1-SNAPSHOT'
+}
+
+war {
+    archiveName "PushNotification.war"
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+//    compile('org.springframework.boot:spring-boot-starter-data-redis')
+//    compile('org.springframework.boot:spring-boot-starter-web')
+
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.2.0'
+    compile group: 'org.postgresql', name: 'postgresql', version: '9.4.1212'
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.4.2'
+    compile group: 'com.google.gcm', name: 'gcm-server', version: '1.0.0'
+    compile 'org.aspectj:aspectjrt:1.8.2'
+
+    compile 'com.fasterxml.jackson.core:jackson-core:2.5.0'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.0'
+
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'commons-io:commons-io:2.4'
+    compile group: 'org.apache.commons', name: 'commons-csv', version: '1.4'
+
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.4.0'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.4.0'
+
+//    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile 'org.springframework:spring-test:4.1.0.RELEASE'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-all:1.10.19'
+    testCompile 'org.powermock:powermock-api-mockito:1.6.4'
+    testCompile 'org.powermock:powermock-module-junit4:1.6.4'
+    testCompile 'info.cukes:cucumber-core:1.2.2'
+    testCompile 'info.cukes:cucumber-java:1.2.2'
+    testCompile 'info.cukes:cucumber-jvm-deps:1.0.3'
+    testCompile 'info.cukes:gherkin:2.12.2'
+    testCompile 'info.cukes:cucumber-junit:1.2.2'
+    testCompile 'com.github.stefanbirkner:system-rules:1.16.0'
+}
